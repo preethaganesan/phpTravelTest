@@ -11,8 +11,7 @@ import pages.login;
 
 public class loginStepDef {
 	
-	//public WebDriver driver=null;
-	
+
 	private login objlogin = new login();
 	
 	@Given("that the user is able to open PHP web page")

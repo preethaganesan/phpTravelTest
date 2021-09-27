@@ -43,13 +43,10 @@ public class login {
 		}
 	
 	public void logintoPhp() throws Exception {
-		//objPhp.getelement("login_BT_login").click();
 		JavascriptExecutor js = (JavascriptExecutor)driver;
-		//WebElement loginButton =driver.findElement(By.xpath("//header[@class='header-area']//a[contains(@class,'theme-btn') and text()='Login']"));
 		js.executeScript("arguments[0].click();", BT_login);
 		ED_email.sendKeys("user@phptravels.com");
 		ED_password.sendKeys("demouser");
-		//WebElement objLogin =driver.findElement(By.xpath("//button[@type='submit' and contains(.,'Login')]"));
 		js.executeScript("arguments[0].click();", BT_loginbtn);		
 	}
 	

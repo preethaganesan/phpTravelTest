@@ -15,22 +15,11 @@ public class addFundsStepDef{
 	
 	@And("User navigates to Add Funds")
 	public void navigateAddFunds() throws Exception {
-	    // Write code here that turns the phrase above into concrete actions
 		objaddFunds.navigateAddFunds();
 	}
 
 
-	@And("User chooses the Payment Method {string}")
-	public void selectPaymentMethod(String PaymentMethod) throws Exception {
-	    // Write code here that turns the phrase above into concrete actions
-		objaddFunds.selectPaymentMethod(PaymentMethod);
-	}
-	
-	@Then("User completes the payment using {string} sucessfully")
-	public void completePayment(String PaymentMethod) throws Exception {
-	    // Write code here that turns the phrase above into concrete actions
-		objaddFunds.completePayment(PaymentMethod);
-	}
+
 	
 	
 

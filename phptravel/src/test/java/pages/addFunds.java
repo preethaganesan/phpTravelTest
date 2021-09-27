@@ -18,11 +18,7 @@ public class addFunds {
 	public WebDriver driver = driverInit.getInstance().getDriver();
 	private utilPhp objPhp = new utilPhp();
 	
-	/*public addFunds(WebDriver rdriver) {
-		this.driver = rdriver;
-		PageFactory.initElements(rdriver, this);
-	}*/
-	
+
 	public addFunds() {
 	PageFactory.initElements(driver, this);
 	}
@@ -66,87 +62,7 @@ public class addFunds {
 		System.out.println("Click Add funds");
 	
 	}
-	
-	
-	public void selectPaymentMethod(String PaymentMethod) throws Exception {	
-		
-		switch(PaymentMethod){	
-			case "PayPal":
-				JavascriptExecutor js = (JavascriptExecutor)driver;
-				js.executeScript("arguments[0].click();", RD_paypal);			
-			break;
-		}
-		
-		
-		JavascriptExecutor js = (JavascriptExecutor)driver;
-		js.executeScript("arguments[0].click();", BT_payNow);	
-	}
-	
-	
-	public void completePayment(String PaymentMethod) throws Exception {
-		
-		switch(PaymentMethod){	
-		case "PayPal":
-			BT_payPal.click();
-		break;
 
-	}
-		String semail = objPhp.getelement("Email");
-		String spassword = objPhp.getelement("Password");
-		
-        //Get handles of the windows
-        String mainWindowHandle = driver.getWindowHandle();
-        Set<String> allWindowHandles = driver.getWindowHandles();
-        Iterator<String> iterator = allWindowHandles.iterator();
-
-        // Here we will check if child window has other child windows and will fetch the heading of the child window
-        while (iterator.hasNext()) {
-            String ChildWindow = iterator.next();
-                if (!mainWindowHandle.equalsIgnoreCase(ChildWindow)) {
-                driver.switchTo().window(ChildWindow);
-                WebElement text = driver.findElement(By.id("headerText"));
-                System.out.println("Heading of child window is " + text.getText());
-            }
-        }
-        
-        ED_email.sendKeys(semail);
-		JavascriptExecutor js = (JavascriptExecutor)driver;
-		js.executeScript("arguments[0].click();", ED_next);	
-		
-		ED_password.sendKeys(spassword);
-        
-
-		js.executeScript("arguments[0].click();", BT_login);
-		
-		WebDriverWait wait = new WebDriverWait(driver,30);
-		wait.until(ExpectedConditions.elementToBeClickable(BT_payNowFinal)); 
-		
-
-		 js.executeScript("arguments[0].scrollIntoView(true);", BT_payNowFinal);
-		 
-		 js.executeScript("return document.readyState").toString().equals("complete");
-		 
-		 wait.until(ExpectedConditions.elementToBeClickable(BT_payNowFinal)); 
-		 
-		 Thread.sleep(1000);
-		 
-		 js.executeScript("arguments[0].click();", BT_payNowFinal);		 
-
-		 
-		 driver.switchTo().window(mainWindowHandle);
-		 
-
-		if(BT_paymentSucess.isDisplayed())
-		{
-			System.out.println("Payment Sucess");
-		}
-		else
-		{
-			System.out.println("Payment Failed");
-        
-		}			
-	
-	}
 	
 
 }
